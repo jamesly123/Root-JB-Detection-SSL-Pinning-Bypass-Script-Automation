@@ -19,9 +19,9 @@ This repository contains a batch script (`run_bypass_scripts.bat`) that automate
 2.  **Run the Batch File**:
     
     -   Open a Command Prompt window.
-    -   Navigate to the directory containing `RunFridaScripts.bat`.
+    -   Navigate to the directory containing `run_bypass_scripts.bat`.
     -   Run the batch file:
-        `./RunFridaScripts.bat` 
+        `./run_bypass_scripts.bat` 
         
 3.  **Follow Prompts**:
     
