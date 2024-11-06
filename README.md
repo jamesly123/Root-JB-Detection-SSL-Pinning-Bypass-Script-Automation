@@ -71,13 +71,12 @@ The batch file uses the following command to execute each Frida script:
 
 cmd
 ```cmd
-frida -U -f <app_package_name> -l "./<script_path>" --no-pause
+frida -U -f <app_package_name> -l "./<script_path>"
 ``` 
 
 -   `-U` specifies a USB-connected device.
 -   `-f` spawns the app in a suspended state.
 -   `-l` loads the specified Frida script.
--   `--no-pause` resumes the app immediately after the script is loaded.
 
 ## Troubleshooting
 
