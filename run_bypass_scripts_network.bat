@@ -4,6 +4,7 @@ setlocal enabledelayedexpansion
 :: Prompt the user for the target app package name and the folder containing Frida scripts
 set /p targetApp="Enter the target app package name (e.g., com.example.app): "
 set /p scriptFolder="Which Platform it is: "
+set /p ipAddr="What is the IP address of the target: "
 
 :: Check if the folder exists
 if not exist "%scriptFolder%" (
@@ -25,10 +26,11 @@ if %scriptCount% EQU 0 (
 )
 
 :: Run each Frida script on the target app
-for /L %%i in (0,1,%scriptCount%-1) do (
+for /L %%i in (0,1,%scriptCount%-2) do (
     set "scriptPath=.\!scriptFiles[%%i]!"
+    echo Running %%i/%scriptCount%
     echo Running Frida script: !scriptPath! on app: %targetApp%
-    frida -U -f %targetApp% -l "!scriptPath!"
+    frida -H %ipAddr% -f %targetApp% -l "!scriptPath!"
     pause
 )
 
