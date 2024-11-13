@@ -16,19 +16,23 @@ This repository contains a batch script (`run_bypass_scripts.bat`) that automate
     - Go to https://github.com/zengfr/frida-codeshare-scripts
     - Under `frida-codeshare-scripts`  , search for `root` or `jailbreak` and download those scripts
     - Place all scripts in the correct respective folder (`iOS` or `Android`)
+
 2.  **Run the Batch File**:
-    
+
     -   Open a Command Prompt window.
-    -   Navigate to the directory containing `run_bypass_scripts.bat`.
+    -   Navigate to the directory containing `run_bypass_scripts_usb.bat` and `run_bypass_scripts_network.bat`.
     -   Run the batch file:
-        `./run_bypass_scripts.bat` 
-        
-3.  **Follow Prompts**:
+        - Through Network: `./run_bypass_scripts_network.bat`
+        - Through USB: `./run_bypass_scripts_usb.bat`
+
+4.  **Follow Prompts**:
     
     -   Enter the app package name for the target app (e.g., `com.example.app`).
     -   Enter the platform that is being used
     -   The script will automatically find all the bypass scripts for each specific platform
-4.  **Script Execution**:
+    -   If you are running the network script, it will prompt the IP Address of the device that you are testing on.
+
+5.  **Script Execution**:
     
     -   Each Frida script will be executed one at a time on the specified app.
     -   After each script runs, the batch file will pause, allowing you to view the output and press `Enter` to proceed to the next script.
@@ -38,7 +42,7 @@ This repository contains a batch script (`run_bypass_scripts.bat`) that automate
 Powershell
 
 ```powershell
-PS C:\Users\User\Desktop\Root-JB Detection Bypass Script Automation> .\run_bypass_scripts.bat
+PS C:\Users\user\Desktop\Root-JB Detection Bypass Script Automation> .\run_bypass_scripts_usb.bat
 Enter the target app package name (e.g., com.example.app): com.example.app
 Which Platform it is: Android
 Running Frida script: .\Android\0xsaudi-root-detection-bypass__dmaral3noz.js on app: com.example.app
@@ -69,12 +73,23 @@ This batch file does the following:
 
 The batch file uses the following command to execute each Frida script:
 
+For USB
 cmd
 ```cmd
 frida -U -f <app_package_name> -l "./<script_path>"
 ``` 
 
 -   `-U` specifies a USB-connected device.
+-   `-f` spawns the app in a suspended state.
+-   `-l` loads the specified Frida script.
+
+For Network
+cmd
+```cmd
+frida -H <IP Address of Device> -f <app_package_name> -l "./<script_path>"
+```
+
+-   `-H` specifies a host to be connected to.
 -   `-f` spawns the app in a suspended state.
 -   `-l` loads the specified Frida script.
 
