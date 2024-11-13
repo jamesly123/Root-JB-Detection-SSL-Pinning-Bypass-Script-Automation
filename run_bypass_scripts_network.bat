@@ -26,9 +26,11 @@ if %scriptCount% EQU 0 (
 )
 
 :: Run each Frida script on the target app
-for /L %%i in (0,1,%scriptCount%-2) do (
+set /A end=%scriptCount%-1
+for /L %%i in (0,1,!end!) do (
     set "scriptPath=.\!scriptFiles[%%i]!"
-    echo Running %%i/%scriptCount%
+    set /A scriptCurr = %%i+1
+    echo Running !scriptCurr!/%scriptCount%
     echo Running Frida script: !scriptPath! on app: %targetApp%
     frida -H %ipAddr% -f %targetApp% -l "!scriptPath!"
     pause
