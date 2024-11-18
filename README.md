@@ -1,7 +1,7 @@
 ﻿
 # Run Root/JB Detection Bypass Scripts Batch Automation
 
-This repository contains a batch script (`run_bypass_scripts.bat`) that automates the process of running multiple Root/JB Detection Bypass scripts on a specified app package on a connected device. The script allows you to execute all `.js` Frida scripts in a specified folder sequentially, prompting between each to observe output before moving on.
+This repository contains a batch scripts (`run_bypass_scripts.bat`) that automates the process of running multiple Root/JB Detection Bypass scripts on a specified app package on a connected device. The script allows you to execute all `.js` Frida scripts in a specified folder sequentially, prompting between each to observe output before moving on.
 
 ## Requirements
 
@@ -20,10 +20,7 @@ This repository contains a batch script (`run_bypass_scripts.bat`) that automate
 2.  **Run the Batch File**:
 
     -   Open a Command Prompt window.
-    -   Navigate to the directory containing `run_bypass_scripts_usb.bat` and `run_bypass_scripts_network.bat`.
-    -   Run the batch file:
-        - Through Network: `./run_bypass_scripts_network.bat`
-        - Through USB: `./run_bypass_scripts_usb.bat`
+    -   Navigate to the directory containing `run_bypass_scripts.bat`
 
 4.  **Follow Prompts**:
     
@@ -42,9 +39,10 @@ This repository contains a batch script (`run_bypass_scripts.bat`) that automate
 Powershell
 
 ```powershell
-PS C:\Users\user\Desktop\Root-JB Detection Bypass Script Automation> .\run_bypass_scripts_usb.bat
+PS C:\Users\user\Desktop\Root-JB Detection Bypass Script Automation> .\run_bypass_scripts.bat
 Enter the target app package name (e.g., com.example.app): com.example.app
 Which Platform it is: Android
+Is this a remote device? (yes/y or no/n): no
 Running Frida script: .\Android\0xsaudi-root-detection-bypass__dmaral3noz.js on app: com.example.app
      ____
     / _  |   Frida 16.5.6 - A world-class dynamic instrumentation toolkit
@@ -60,7 +58,7 @@ Running Frida script: .\Android\0xsaudi-root-detection-bypass__dmaral3noz.js on 
 
 ## Script Details
 
-### `RunFridaScripts.bat`
+### `run_bypass_scripts.bat`
 
 This batch file does the following:
 
