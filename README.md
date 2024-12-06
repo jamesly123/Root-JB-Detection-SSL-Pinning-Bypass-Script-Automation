@@ -26,8 +26,8 @@ This repository contains a batch scripts (`run_bypass_scripts.bat`) that automat
     
     -   Enter the app package name for the target app (e.g., `com.example.app`).
     -   Enter the platform that is being used
+    -   The batch script will also ask if the device is a remote device (connect to frida-server using network) or not (connect to frida-server using USB)
     -   The script will automatically find all the bypass scripts for each specific platform
-    -   If you are running the network script, it will prompt the IP Address of the device that you are testing on.
 
 5.  **Script Execution**:
     
