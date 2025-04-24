@@ -14,7 +14,7 @@ This repository contains a batch scripts (`run_bypass_scripts.bat`) that automat
 1.  **Update the scripts if it is not updated**:
     
     - Go to https://github.com/zengfr/frida-codeshare-scripts
-    - Under `frida-codeshare-scripts`  , search for `root` or `jailbreak` and download those scripts
+    - Under `frida-codeshare-scripts`  , search for `root`, `jailbreak` and `ssl` and download those scripts
     - Place all scripts in the correct respective folder (`iOS` or `Android`)
 
 2.  **Run the Batch File**:
