@@ -5,6 +5,7 @@ setlocal enabledelayedexpansion
 set /p targetApp="Enter the target app package name (e.g., com.example.app): "
 set /p scriptFolder="Which Platform it is: "
 set /p connectionType="Is this a remote device? (yes/y or no/n): "
+set /p typeofScriptsUsed="Testing for SSL Pinning or Root/JB Detection? (S/s or D/d): "
 
 :: Normalise the input to lowercase
 set "connectionType=%connectionType%"
@@ -26,6 +27,20 @@ if /I "%connectionType%" EQU "yes" (
 :: Check if the folder exists
 if not exist "%scriptFolder%" (
     echo The specified folder path does not exist. Exiting.
+    exit /b
+)
+
+:: Determine script subfolders to search
+if /I "%typeofScriptsUsed%" EQU "s" (
+    set "scriptFolder=%scriptFolder%\SSL"
+) else if /I "%typeofScriptsUsed%" EQU "S" (
+    set "scriptFolder=%scriptFolder%\SSL"
+) else if /I "%typeofScriptsUsed%" EQU "d" (
+    set "scriptFolder=%scriptFolder%\Detection"
+) else if /I "%typeofScriptsUsed%" EQU "D" ( 
+    set "scriptFolder=%scriptFolder%\Detection"
+) else (
+    echo Invalid script type entered. Exiting.
     exit /b
 )
 
