@@ -1,7 +1,7 @@
 ﻿
-# Run Root/JB Detection Bypass Scripts Batch Automation
+# Root/JB Detection Bypass and SSL Pinning Bypass Script
 
-This repository contains a batch scripts (`run_bypass_scripts.bat`) that automates the process of running multiple Root/JB Detection Bypass scripts on a specified app package on a connected device. The script allows you to execute all `.js` Frida scripts in a specified folder sequentially, prompting between each to observe output before moving on.
+This repository contains a batch scripts (`run_bypass_scripts.bat`) that automates the process of running multiple Root/JB Detection Bypass scripts or SSL Certificate Pinning Bypass Scripts on a specified app package on a connected device. The script allows you to execute all `.js` Frida scripts in a specified folder sequentially, prompting between each to observe output before moving on.
 
 ## Requirements
 
@@ -27,6 +27,7 @@ This repository contains a batch scripts (`run_bypass_scripts.bat`) that automat
     -   Enter the app package name for the target app (e.g., `com.example.app`).
     -   Enter the platform that is being used
     -   The batch script will also ask if the device is a remote device (connect to frida-server using network) or not (connect to frida-server using USB)
+    -   The batch script will also ask if the scripts being used is for Root/JB Detection Bypass or SSL Certificate Pinning Bypass
     -   The script will automatically find all the bypass scripts for each specific platform
 
 5.  **Script Execution**:
@@ -43,6 +44,8 @@ PS C:\Users\user\Desktop\Root-JB Detection Bypass Script Automation> .\run_bypas
 Enter the target app package name (e.g., com.example.app): com.example.app
 Which Platform it is: Android
 Is this a remote device? (yes/y or no/n): no
+Testing for SSL Pinning or Root/JB Detection? (S/s or D/d): D
+Running 1/24
 Running Frida script: .\Android\0xsaudi-root-detection-bypass__dmaral3noz.js on app: com.example.app
      ____
     / _  |   Frida 16.5.6 - A world-class dynamic instrumentation toolkit
