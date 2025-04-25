@@ -4,6 +4,8 @@
 read -p "Enter the target app package name (e.g., com.example.app): " targetApp
 read -p "Which Platform it is: " scriptFolder
 read -p "Is this a remote device? (yes/y or no/n): " connectionType
+read -p "Testing for SSL Pinning (S) or Root/JB Detection (D)? " typeofScriptsUsed
+
 
 # Convert connectionType to lowercase for consistent checks
 connectionType=$(echo "$connectionType" | tr '[:upper:]' '[:lower:]')
@@ -21,6 +23,17 @@ if [[ ! -d "$scriptFolder" ]]; then
     echo "The specified folder path does not exist. Exiting."
     exit 1
 fi
+
+typeofScriptsUsed=$(echo "$typeofScriptsUsed" | tr '[:upper:]' '[:lower:]')
+
+if [[ "$typeofScriptsUsed" == "s" ]]; then
+    scriptFolder=("$scriptFolder/SSL")
+elif [[ "$typeofScriptsUsed" == "d" ]]; then
+    scriptFolder=("$scriptFolder/Detection")
+else
+    echo "Invalid script type entered. Exiting."
+    exit 1
+fi    
 
 # Find all .js files in the specified folder
 scriptFiles=("$scriptFolder"/*.js)
